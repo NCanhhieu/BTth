@@ -16,31 +16,56 @@ public class zoo {
     int n;
     public zoo() {
     }
-    
+    public boolean checkDifname(String a){
+          for(int j = 0; j< list.size(); j++){
+      Animal Temp =list.get(j);
+      if(Temp.name.equals(a)){
+          return false;
+      }
+    }  return true;
+    }
     public void addA(){
         Scanner sc = new Scanner(System.in);
         int i;
         i = sc.nextInt();
        
                switch(i){
-                    case 1:
-                         Animal newzoo = new Animal();
+                    case 1 -> {
+                        Animal newzoo = new Animal();
                         System.out.println("nhập tên thú:");
-                         newzoo.input();
-                        list.add(newzoo);
+                        newzoo.input();
+                        if(checkDifname(newzoo.name))
+                        {list.add(newzoo);
                         break;
-                    case 2:
+                        }  else {
+                            System.out.println("tên bị trùng");
+                        }
+            }
+                    case 2 -> {
                         Cat cat = new Cat();
                         cat.input();
-                        list.add(cat);
+                         if(checkDifname(cat.name))
+                        {   list.add(cat);
                         break;
-                    case 3:
+                        }  else {
+                            System.out.println("tên bị trùng");
+                        }
+            }
+                     
+           
+                    case 3 -> {
                         Dog dog = new Dog();   
                         dog.input();
-                        list.add(dog);
+                        if(checkDifname(dog.name))
+                        {   list.add(dog);
                         break;
-                    default:
-                        System.out.println("vui lòng nhập từ 1 đến 3");
+                        }  else {
+                            System.out.println("tên bị trùng");
+                        }
+            }
+                       
+             
+                    default -> System.out.println("vui lòng nhập từ 1 đến 3");
            }
     }
     
@@ -50,9 +75,11 @@ public class zoo {
             Animal Temp =list.get(i);
             if(Temp.name.equalsIgnoreCase(name)){
                 list.remove(i);
+                break;
             }
                 if(Temp.name.equalsIgnoreCase("")){
                     System.out.println("tên ko có để xóa");
+                    break;
             }
         } 
     }

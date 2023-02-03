@@ -19,7 +19,7 @@ public class Cat extends Animal {
     
      @Override
     public void input(){
-        System.out.println("tên chó là:");
+        System.out.println("tên mèo là:");
         super.input();
     }
     
